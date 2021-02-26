@@ -1,0 +1,47 @@
+{
+    "name": "custom.python.old_files",
+    "version": "1.002",
+    "type": "python",
+    "entity": "HOST",
+    "technologies": [],
+    "metricGroup": "tech.OldFiles",
+    "source": {
+        "package": "old_files_extension",
+        "className": "OldFilesExtension",
+        "install_requires": [],
+        "activation": "Singleton"
+    },
+    "properties": [
+        {"key":  "folders", "type": "Textarea"}
+    ],
+    "configUI": {
+        "displayName": "Old Files",
+        "properties": [
+            {"key":  "folders", "displayName": "Folders to test", "displayOrder": 1, "displayHint":  "List of path|recursive|minutes, separated by new lines. Ex: D:/tmp|true|10"}
+        ]
+    },
+    "metrics": [
+        {
+            "timeseries": {
+                "key": "file_age",
+                "unit": "Second",
+                "displayname": "File Age",
+                "dimensions": ["File"]
+            }
+        }
+    ],
+    "ui": {
+        "charts": [
+            {
+                "group":  "Old Files",
+                "title": "Old Files",
+                "series": [
+                    {
+                        "key": "file_age",
+                        "displayname": "File Age"
+                    }
+                ]
+            }
+        ]
+    }
+}
